@@ -1,29 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Food Delivery Time Prediction</title>
 </head>
-<body style="font-family: Arial; text-align: center; margin-top: 50px;">
-
-    <h1>Food Delivery Time Predictor</h1>
-
-    <form action="/predict" method="POST">
-        <label>Age:</label><br>
-        <input type="number" name="age" step="any" required><br><br>
-
-        <label>Rating:</label><br>
-        <input type="number" name="rating" step="any" required><br><br>
-
-        <label>Distance (km):</label><br>
-        <input type="number" name="distance" step="any" required><br><br>
-
-        <button type="submit">Predict</button>
+<body>
+    <h2>Predict Delivery Time</h2>
+    <form action="/predict" method="post">
+        Age: <input type="text" name="age"><br><br>
+        Rating: <input type="text" name="rating"><br><br>
+        Distance: <input type="text" name="distance"><br><br>
+        <input type="submit" value="Predict">
     </form>
 
     {% if prediction_text %}
-        <h2 style="color:green; margin-top:20px;">{{ prediction_text }}</h2>
+        <h3>{{ prediction_text }}</h3>
     {% endif %}
-
 </body>
 </html>
