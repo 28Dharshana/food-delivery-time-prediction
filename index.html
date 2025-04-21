@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Delivery Time Prediction</title>
+</head>
+<body>
+    <h2>Predict Delivery Time</h2>
+    <form action="/predict" method="post">
+        Age: <input type="text" name="age"><br><br>
+        Rating: <input type="text" name="rating"><br><br>
+        Distance: <input type="text" name="distance"><br><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
