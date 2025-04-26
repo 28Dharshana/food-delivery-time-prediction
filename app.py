@@ -2,14 +2,14 @@ from flask import Flask, render_template, request
 from keras.models import load_model
 import numpy as np
 
-# Load the LSTM model
-model = load_model('food_delivery_model.keras')   # <-- changed .h5 to .keras
+# Load the LSTM model only once when the app starts
+model = load_model('food_delivery_model.keras')
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')  # simple input form
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -18,7 +18,7 @@ def predict():
     distance = int(request.form['distance'])
 
     features = np.array([[age, rating, distance]])
-    features = features.reshape((features.shape[0], features.shape[1], 1))   # reshape for LSTM!
+    features = features.reshape((features.shape[0], features.shape[1], 1))  # Reshape for LSTM
 
     prediction = model.predict(features)
     predicted_time = prediction[0][0]
