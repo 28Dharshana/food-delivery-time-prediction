@@ -1,4 +1,4 @@
-Flask
-tensorflow
+Flask==3.1.0
+tensorflow==2.19.0
 numpy
 gunicorn
